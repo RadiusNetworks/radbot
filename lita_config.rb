@@ -1,36 +1,57 @@
+#module Lita
+#  module Handlers
+#    class Debug < Handler
+#      route(/^debug/) { |response| debugger }
+#      Lita.register_handler(self)
+#    end
+#  end
+#end
+
 Lita.configure do |config|
-  # The name your robot will use.
-  config.robot.name = "Lita"
+  #
+  # Look for the slack token, if it is there, assume we are running in
+  # production mode and connect to slack. Otherwise assume we are running
+  # locally and just want to test something out.
+  #
+  # Can be tested with the following command:
+  #
+  #     lita run
+  #
+  if ENV["SLACK_TOKEN"]
+    config.http.port = ENV["PORT"]
+    config.robot.adapter = :slack
+    config.adapters.slack.token = ENV["SLACK_TOKEN"]
+    config.robot.admins = ENV["SLACK_ADMINS"].split(",")
+  else
+    config.robot.adapter = :shell
+    config.adapters.slack.token = "fake"
+  end
 
-  # The locale code for the language to use.
-  # config.robot.locale = :en
-
-  # The severity of messages to log. Options are:
-  # :debug, :info, :warn, :error, :fatal
-  # Messages at the selected level and above will be logged.
+  config.robot.name = "radbot"
+  config.robot.alias = ","  # Set leader to ',' because vim
+  config.robot.locale = :en
   config.robot.log_level = :info
 
-  # An array of user IDs that are considered administrators. These users
-  # the ability to add and remove other users from authorization groups.
-  # What is considered a user ID will change depending on which adapter you use.
-  # config.robot.admins = ["1", "2"]
+  config.handlers.hangout.domain='radiusnetworks.com'
 
-  # The adapter you want to connect with. Make sure you've added the
-  # appropriate gem to the Gemfile.
-  config.robot.adapter = :shell
+  config.handlers.cleverbot.api_user = ENV["CLEVERBOT_API_USER"]
+  config.handlers.cleverbot.api_key = ENV["CLEVERBOT_API_KEY"]
 
-  ## Example: Set options for the chosen adapter.
-  # config.adapter.username = "myname"
-  # config.adapter.password = "secret"
+  config.handlers.wtf.see_also = ["merriam"]
+  config.handlers.wtf.api_keys = {"merriam" => ENV["MERRIAM_KEY"]}
 
-  ## Example: Set options for the Redis connection.
-  # config.redis.host = "127.0.0.1"
-  # config.redis.port = 1234
+  #config.handlers.imgflip.command_only = true
+  config.handlers.imgflip.username = ENV["IMGFLIP_USER"]
+  config.handlers.imgflip.password = ENV["IMGFLIP_PASS"]
 
-  ## Example: Set configuration for any loaded handlers. See the handler's
-  ## documentation for options.
-  # config.handlers.some_handler.some_config_key = "value"
-  #
-  config.robot.adapter = :slack
-  config.adapters.slack.token = ENV["SLACK_TOKEN"]
+  config.handlers.github_pinger.engineers = {
+    #"Aaron Kromer"       => { usernames: { slack: "aaron",   github: "cupakromer" } },
+    #"Alastair Hewitt"    => { usernames: { slack: "al",      github: "ajhewitt" } },
+    "Christopher Sexton" => { usernames: { slack: "chris",   github: "csexton" } },
+    #"James Nebeker"      => { usernames: { slack: "james",   github: "jnebeker" } },
+    #"Michael Harper"     => { usernames: { slack: "michael", github: "mharper" } },
+    #"Scott Newman"       => { usernames: { slack: "snewman", github: "greencoder" } },
+    #"Scott Yoder"        => { usernames: { slack: "scott",   github: "syoder" } },
+  }
+
 end

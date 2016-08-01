@@ -1,16 +1,16 @@
 source "https://rubygems.org"
 
+gem "byebug"
+
 gem "lita"
-gem "lita-slack"
+gem "lita-aww"
+gem "lita-catgif"
+gem "lita-cleverbot"
 gem "lita-dotenv"
-
-# Uncomment to use the HipChat adapter
-# gem "lita-hipchat"
-
-# Uncomment to use the IRC adapter
-# gem "lita-irc"
-
-# Add handlers to give Lita new functionality.
-# For example:
-# gem "lita-google-images"
-# gem "lita-karma"
+gem "lita-down-for-everyone"
+gem "lita-github-pinger"
+gem "lita-hangout", github: "csexton/lita-hangout"
+gem "lita-imgflip"
+gem "lita-karma"
+gem "lita-slack"
+gem "lita-wtf"
