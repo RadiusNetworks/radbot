@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/csexton/lita-hangout.git
-  revision: eedb8f17471b08c9639e43a03ec2b6fc419883e3
+  revision: 0e215dee6f29581d3cc31d5ac0d76b65f457e3d0
   specs:
     lita-hangout (0.2.0)
       lita (>= 4.3)
