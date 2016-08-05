@@ -28,7 +28,6 @@ Lita.configure do |config|
   end
 
   config.robot.name = "radbot"
-  config.robot.alias = ","  # Set leader to ',' because vim
   config.robot.locale = :en
   config.robot.log_level = :info
 
