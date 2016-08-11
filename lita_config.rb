@@ -53,4 +53,5 @@ Lita.configure do |config|
     #"Scott Yoder"        => { usernames: { slack: "scott",   github: "syoder" } },
   }
 
+  #config.handlers.squirrel.likelihood = 1
 end
