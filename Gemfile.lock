@@ -1,9 +1,20 @@
 GIT
   remote: git://github.com/csexton/lita-hangout.git
-  revision: 7e175b793e22b377749445540c936247e3a0ed58
+  revision: ef9db68649cc06bc56677badcdeacc4dddf719f6
   specs:
     lita-hangout (0.2.0)
       lita (>= 4.3)
+
+GIT
+  remote: git://github.com/litaio/lita-slack.git
+  revision: 6a1b5624036f98076f213fadd6421a13c3e5a1e5
+  specs:
+    lita-slack (1.7.2)
+      eventmachine
+      faraday
+      faye-websocket (>= 0.8.0)
+      lita (>= 4.7.0)
+      multi_json
 
 GEM
   remote: https://rubygems.org/
@@ -55,12 +66,6 @@ GEM
       lita (~> 4.0)
     lita-karma (3.0.2)
       lita (>= 4.0)
-    lita-slack (1.7.2)
-      eventmachine
-      faraday
-      faye-websocket (>= 0.8.0)
-      lita (>= 4.6.0)
-      multi_json
     lita-wtf (1.1.0)
       lita (>= 4.0)
       nokogiri
@@ -100,7 +105,7 @@ DEPENDENCIES
   lita-hangout!
   lita-imgflip
   lita-karma
-  lita-slack
+  lita-slack!
   lita-wtf
 
 BUNDLED WITH

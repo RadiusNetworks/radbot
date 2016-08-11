@@ -18,16 +18,16 @@ Lita.configure do |config|
   #     lita run
   #
   if ENV["SLACK_TOKEN"]
-    config.http.port = ENV["PORT"]
+    config.http.port = ENV["PORT"] if ENV["PORT"]
     config.robot.adapter = :slack
     config.robot.admins = ENV["SLACK_ADMINS"].split(",")
 
     config.adapters.slack.token = ENV["SLACK_TOKEN"]
 
-    config.adapters.slack.link_names = true
-    config.adapters.slack.parse = "full"
-    config.adapters.slack.unfurl_links = false
-    config.adapters.slack.unfurl_media = true
+    #config.adapters.slack.link_names = true
+    #config.adapters.slack.parse = "full"
+    #config.adapters.slack.unfurl_links = false
+    #config.adapters.slack.unfurl_media = true
   else
     config.robot.adapter = :shell
     config.adapters.slack.token = "fake"
