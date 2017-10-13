@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/csexton/lita-hangout.git
-  revision: ef9db68649cc06bc56677badcdeacc4dddf719f6
-  specs:
-    lita-hangout (0.2.0)
-      lita (>= 4.3)
-
-GIT
   remote: git://github.com/litaio/lita-slack.git
   revision: 6a1b5624036f98076f213fadd6421a13c3e5a1e5
   specs:
@@ -102,11 +95,13 @@ DEPENDENCIES
   lita-dotenv
   lita-down-for-everyone
   lita-github-pinger
-  lita-hangout!
   lita-imgflip
   lita-karma
   lita-slack!
   lita-wtf
 
+RUBY VERSION
+   ruby 2.4.2p198
+
 BUNDLED WITH
-   1.11.2
+   1.15.4
