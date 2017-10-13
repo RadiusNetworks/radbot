@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.3.0"
+ruby "2.4.2"
 
 gem "byebug"
 
@@ -11,7 +11,7 @@ gem "lita-cleverbot"
 gem "lita-dotenv"
 gem "lita-down-for-everyone"
 gem "lita-github-pinger"
-gem "lita-hangout", github: "csexton/lita-hangout"
+#gem "lita-hangout", github: "csexton/lita-hangout"
 #gem "lita-hangout", path: "~/src/lita-hangout"
 #gem "lita-squirrel", path: "~/src/lita-squirrel"
 gem "lita-imgflip"
